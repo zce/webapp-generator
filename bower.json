@@ -1,0 +1,21 @@
+{
+    "name": "micua",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "~4.0.0",
+        "font-awesome": "fontawesome#~4.4.0",
+        "modernizr": "~2.8.1"
+    },
+    "devDependencies": {
+        "chai": "~3.2.0",
+        "mocha": "~2.2.5"
+    },
+    "overrides": {
+        "bootstrap":{
+            "main":[
+              "scss/bootstrap.scss",
+              "dist/js/bootstrap.js"
+            ]
+        }
+    }
+}

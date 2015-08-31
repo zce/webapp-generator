@@ -1,0 +1,55 @@
+/**
+ * header component
+ * Author : iceStone <ice@wedn.net>
+ * Created : 2015-08-31 14:42:55
+ * Modified : 2015-08-31 14:43:14
+ * Copyright © 2015 Micua.com. All Rights Reserved.
+ */
+$animation-duration: 0.5s;
+$animation-brand-size: 2rem;
+$animation-brand-line-height: 2.4;
+$animation-link-size: 1.2rem;
+$animation-link-line-height: 2;
+$animation-link-padding: 1.425rem;
+
+.navbar-sizeable {
+    .navbar-brand,
+    .navbar-nav .nav-link,
+    .navbar-form {
+        transition: all $animation-duration ease;
+    }
+}
+
+.navbar-form {
+    .form-control {
+        width: 12rem;
+        transition: all $animation-duration ease;
+
+        &:focus {
+            width: 15rem;
+        }
+    }
+}
+
+body[data-scrolled="true"] {
+    .navbar-sizeable {
+        .navbar-brand {
+            font-size: $animation-brand-size;
+            line-height: $animation-brand-line-height;
+        }
+
+        .navbar-nav {
+            .nav-link {
+                font-size: $animation-link-size;
+                line-height: $animation-link-line-height;
+                padding-bottom: $animation-link-padding;
+                padding-top: $animation-link-padding;
+            }
+        }
+
+        .navbar-form {
+            padding-bottom: $animation-link-padding;
+            padding-top: $animation-link-padding;
+        }
+    }
+}

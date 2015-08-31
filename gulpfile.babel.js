@@ -1,4 +1,9 @@
-// generated on 2015-08-29 using generator-micua-webapp 1.0.4
+/*
+ * @Author: iceStone
+ * @Date:   2015-08-31 11:40:15
+ * @Last Modified by:   iceStone
+ * @Last Modified time: 2015-08-31 11:40:15
+ */
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
@@ -86,12 +91,12 @@ gulp.task('images', () => {
                 console.log(err);
                 this.end();
             })))
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('fonts', () => {
     return gulp.src(require('main-bower-files')({
-            filter: '**/*.{eot,svg,ttf,woff,woff2}'
+            filter: '**/*.{eot,svg,ttf,woff,woff2,otf}'
         }).concat('src/fonts/**/*'))
         .pipe(gulp.dest('temp/fonts'))
         .pipe(gulp.dest('dist/fonts'));
@@ -111,7 +116,7 @@ gulp.task('clean', del.bind(null, ['temp', 'dist']));
 gulp.task('server', ['styles', 'fonts'], () => {
     browserSync({
         notify: false,
-        port: 9000,
+        port: 2015,
         server: {
             baseDir: ['temp', 'src'],
             routes: {
@@ -135,7 +140,7 @@ gulp.task('server', ['styles', 'fonts'], () => {
 gulp.task('server:dist', () => {
     browserSync({
         notify: false,
-        port: 9000,
+        port: 2015,
         server: {
             baseDir: ['dist']
         }
@@ -145,7 +150,7 @@ gulp.task('server:dist', () => {
 gulp.task('server:test', () => {
     browserSync({
         notify: false,
-        port: 9000,
+        port: 2015,
         ui: false,
         server: {
             baseDir: 'test',

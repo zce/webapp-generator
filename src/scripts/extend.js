@@ -9,3 +9,27 @@ Window.prototype.getScroll = function() {
         y: (this.pageYOffset !== undefined) ? this.pageYOffset : (this.document.documentElement || this.document.body.parentNode || this.document.body).scrollTop
     };
 };
+
+/**
+ * 优化滚动事件
+ * @param  {Object} function(window [description]
+ * @return {[type]}                 [description]
+ */
+(function(window) {
+    var throttle = function(type, name, obj) {
+        var obj = obj || window;
+        var running = false;
+        var func = function() {
+            if (running) { return; }
+            running = true;
+            requestAnimationFrame(function() {
+                obj.dispatchEvent(new CustomEvent(name));
+                running = false;
+            });
+        };
+        obj.addEventListener(type, func);
+    };
+
+    /* init - you can init any event */
+    throttle ("scroll", "optimizedScroll");
+})(window);

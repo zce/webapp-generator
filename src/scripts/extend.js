@@ -1,3 +1,4 @@
+'use strict';
 /**
  * 获取窗体滚动信息
  * @return {Object} 包含滚动信息的对象

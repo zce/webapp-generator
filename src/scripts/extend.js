@@ -16,11 +16,13 @@ Window.prototype.getScroll = function() {
  * @return {[type]}                 [description]
  */
 (function(window) {
-    var throttle = function(type, name, obj) {
-        var obj = obj || window;
+    var throttle = function(type, name, target) {
+        var obj = target || window;
         var running = false;
         var func = function() {
-            if (running) { return; }
+            if (running) {
+                return;
+            }
             running = true;
             requestAnimationFrame(function() {
                 obj.dispatchEvent(new CustomEvent(name));
@@ -31,5 +33,5 @@ Window.prototype.getScroll = function() {
     };
 
     /* init - you can init any event */
-    throttle ("scroll", "optimizedScroll");
+    throttle('scroll', 'optimizedScroll');
 })(window);

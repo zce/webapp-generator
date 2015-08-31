@@ -16,7 +16,7 @@
         document.body.setAttribute('data-scrolled', scroll.y > offset);
     }
     // handle event
-    window.addEventListener("optimizedScroll", optimizedScroll);
+    window.addEventListener('optimizedScroll', optimizedScroll);
     optimizedScroll();
     // window.optimizedScroll();
 
